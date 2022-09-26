@@ -1,5 +1,8 @@
 const controle = document.querySelectorAll("[data-controle]")
 const estatisticas = document.querySelectorAll("[data-estatistica]")
+const form = document.querySelector('form');
+const listaRobos = document.querySelectorAll('.robotron');
+
 const pecas = {
   "bracos": {
     "forca": 29,
@@ -33,6 +36,34 @@ const pecas = {
     "velocidade": -2
   }
 }
+
+function tocarSom(seletorAudio) {
+  console.log(seletorAudio)
+
+  const somRobo = document.querySelector(seletorAudio)
+  if (somRobo && somRobo.localName === 'audio') {
+    somRobo.play();
+  } else {
+    console.log('Elemento não encontrado ou seletor inválido');
+  }
+}
+
+function trocaImagem(cor) {
+  document.querySelector(".robo").src = "img/Robotron 2000 - " + cor + ".png";
+}
+
+for (let contador = 0; contador < listaRobos.length; contador++) {
+  const robo = listaRobos[contador]
+  const classRobo = robo.classList[1]
+  const idAudio = `#som-${classRobo}`
+
+  robo.onclick = function () {
+    trocaImagem(classRobo)
+    tocarSom(idAudio)
+
+  }
+}
+
 controle.forEach((elemento) => {
 
   elemento.addEventListener('click', (evento) => {
@@ -51,8 +82,17 @@ function manipulaDados(operacao, controle) {
 }
 
 function atualizaEstatisticas(peca) {
-console.log('pecas', pecas[peca])
-estatisticas.forEach((elemento) => {
-  elemento.textContent = parseInt(elemento.textContent) + pecas[peca] [elemento.dataset.estatistica]
-})
+  console.log('pecas', pecas[peca])
+  estatisticas.forEach((elemento) => {
+    elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
+  })
 }
+
+
+
+form.addEventListener('submit', (evento) => {
+  evento.preventDefault()
+  
+  var audio = new Audio('Robotron-iniciar.mp3');
+audio.play();
+})

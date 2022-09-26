@@ -29,7 +29,7 @@ main {
   gap: 1vw;
 }
 
-.robotron {
+.container {
   background: url(../img/estrutura.png) no-repeat;
   background-position: center center;
   margin: 0;
@@ -37,12 +37,34 @@ main {
   position: relative;
 }
 
+.botoes {
+  display: flex;
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  display: block;
+  top: 0;
+}
+
+.robotron {
+  margin: 2px;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 15px;
+  border-color: #fb0c0c;
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(4, 4, 4, 0.472);
+  cursor: pointer;
+  z-index: 999;
+}
+
 .robo {
-  height: 110%;
+  height: 90%;
   z-index: 1;
   position: absolute;
-  left: -20%;
-  top: -5%;
+  left: 0;
+  top: 12%;
 }
 
 .titulo {
@@ -72,7 +94,8 @@ main {
 }
 
 .montador {
-  height: 100%;;
+  height: 100%;
+  ;
 }
 
 .montador-conteudo {
@@ -210,24 +233,66 @@ main {
 }
 
 @media screen and (max-width: 1600px) {
-  body { 
-      font-size: 14px;
+  body {
+    font-size: 14px;
   }
+
   main {
-      width: 90vw;
-      height: 80vh;
-      margin: 5vh auto;
+    width: 90vw;
+    height: 80vh;
+    margin: 5vh auto;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  body { 
-      font-size: 13px;
+  body {
+    font-size: 13px;
   }
 
   main {
-      width: 96vw;
-      height: 80vh;
-      margin: 10vh auto;
+    width: 96vw;
+    height: 80vh;
+    margin: 10vh auto;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  body {
+    font-size: 13px;
+    width: 100%;
+    margin: 10px;
+  }
+
+  main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container, .botoes {
+    position: static;
+  }
+  .container {
+    height: 100%;
+  }
+
+  .botoes {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .robotron {
+    width: 80%;
+  }
+
+  .robo {
+    z-index: 0;
+    height: 66%;
+    position: static;
+  }
+
+  .titulo {
+    font-size: 63px;
+    left: 2rem;
   }
 }
