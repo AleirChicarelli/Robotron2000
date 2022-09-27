@@ -61,7 +61,7 @@ main {
 
 .robo {
   left: 25%;
-  width: 500px;
+  width: 400px;
   height: 70%;
   z-index: 1;
   position: absolute;
@@ -295,7 +295,7 @@ main {
   .titulo {
     font-size: 83px;
     left: 2rem;
-    bottom: 190px;
+    bottom: 150px;
 
   }
 }
